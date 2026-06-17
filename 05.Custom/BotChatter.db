@@ -1,0 +1,1428 @@
+//----------------------------------------------------------------------------
+// BotChatter.db
+// 作者: Michael S. Booth, Turtle Rock Studios (www.turtlerockstudios.com)
+// 汉化：毛毛的老公(http://tarimren.ysepan.com/)
+// 汉化时间：2026年5月20日
+//----------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------
+// 数据库定义了"位置"和zbot机器人通过无线电进行交流的"聊天"内容.
+// 
+// 短语（即地点或聊天）可以包含任意数量和合适内容的wav文件，用于播放该短语概念的语音录音.
+// 例如，"yes"可以包含多个wav文件以表达"yes"的内容.
+// 比如"affirmative（明白）"，"yes sir（是，长官）"，"roger that（收到）"等等.
+//
+// 一些短语有一个"Radio（无线电报）"行.
+// 该短语对应标准无线电事件，并在玩家限制机器人只能使用标准无线电消息时使用.
+// 在这种情况下，将直接播放该无线电消息，而不使用文字聊天.
+//
+// 关键字"Important"将短语标记为"mission critical（关键任务）"，
+// 当机器人聊天参数被设置为"minimal"时，则只播报特定关键任务信息.
+//
+// "Count"和"Place"表示只有机器人触发特定的count或Place时，
+// 才会选择任何后续的wav文件.
+
+//
+// 声音文件注意事项：
+// 除非另有说明，否则这些短语应以简洁的方式表达意图.
+// 机器人会说出多条短语来传达情况.例如，如果机器人发现桥附近有很多敌人，其中一个敌人携带炸弹，则会说出类似以下内容：
+// "Bridge" ... "There's the bomber" ... "Need help!"  
+// "桥"..."炸弹在这里"..."需要帮助！"
+//
+// ***注意：文件名总长度必须小于64个字符!
+//
+//
+// 位置必须首先出现在这个数据库中
+//
+
+Place BombsiteA
+	radio\bot\a.wav
+End
+
+Place BombsiteB
+	radio\bot\b.wav
+End
+
+Place BombsiteC
+	radio\bot\c.wav
+End
+
+Place Hostages
+	radio\bot\hostages.wav
+End
+
+Place HostageRescueZone
+	radio\bot\rescue_zone.wav
+	radio\bot\rescue_zone2.wav
+End
+
+Place VipRescueZone
+	radio\bot\rescue_zone.wav
+	radio\bot\rescue_zone2.wav
+End
+
+Place CTSpawn
+	radio\bot\ct_spawn.wav
+End
+
+Place TSpawn
+	radio\bot\t_spawn.wav
+End
+
+
+Place Bridge
+	radio\bot\bridge.wav
+End
+
+Place Middle
+	radio\bot\middle.wav
+End
+
+Place House
+	radio\bot\house.wav
+End
+
+Place Apartment
+	radio\bot\apartment.wav
+End
+
+Place Apartments
+	radio\bot\apartments.wav
+End
+
+Place Market
+	radio\bot\market.wav
+	radio\bot\market2.wav
+End
+
+Place Sewers
+	radio\bot\sewers.wav
+	radio\bot\sewers2.wav
+End
+
+Place Tunnel
+	radio\bot\tunnel.wav
+	radio\bot\tunnel2.wav
+End
+
+Place Ducts
+	radio\bot\vents.wav
+	radio\bot\vents2.wav
+	radio\bot\ventilation_system.wav
+End
+
+Place Village
+	radio\bot\villiage.wav
+End
+
+Place Roof
+	radio\bot\roof.wav
+End
+
+Place Upstairs
+	radio\bot\upstairs.wav
+End
+
+Place Downstairs
+	radio\bot\downstairs.wav
+End
+
+Place Basement
+	radio\bot\basement.wav
+End
+
+Place Crawlspace
+	radio\bot\crawlspace.wav
+End
+
+Place Kitchen
+	radio\bot\kitchen.wav
+	radio\bot\kitchen2.wav
+End
+
+Place Inside
+	radio\bot\inside.wav
+End
+
+Place Outside
+	radio\bot\outside.wav
+End
+
+Place Tower
+	radio\bot\tower.wav
+End
+
+Place WineCellar
+	radio\bot\wine_cellar.wav
+End
+
+Place Garage
+	radio\bot\garage.wav
+End
+
+Place Courtyard
+	radio\bot\courtyard.wav
+End
+
+Place Water
+	radio\bot\water.wav
+End
+
+Place FrontDoor
+	radio\bot\front_door.wav
+	radio\bot\front_door2.wav
+End
+
+Place BackDoor
+	radio\bot\back_door.wav
+End
+
+Place SideDoor
+	radio\bot\side_door.wav
+End
+
+Place BackWay
+	radio\bot\back_way.wav
+End
+
+Place FrontYard
+	radio\bot\front_yard.wav
+End
+
+Place BackYard
+	radio\bot\back_yard.wav
+End
+
+Place SideYard
+	radio\bot\side_yard.wav
+End
+
+Place Lobby
+	radio\bot\lobby.wav
+End
+
+Place Vault
+	radio\bot\vault.wav
+End
+
+Place Elevator
+	radio\bot\elevator.wav
+	radio\bot\elevator2.wav
+End
+
+Place DoubleDoors
+	radio\bot\double_doors.wav
+End
+
+Place SecurityDoors
+	radio\bot\security_doors.wav
+End
+
+Place LongHall
+	radio\bot\long_hall.wav
+End
+
+Place SideHall
+	radio\bot\side_hall.wav
+End
+
+Place FrontHall
+	radio\bot\front_hall.wav
+End
+
+Place BackHall
+	radio\bot\back_hall.wav
+End
+
+Place MainHall
+	radio\bot\main_hall.wav
+End
+
+Place FarSide
+	radio\bot\far_side.wav
+End
+
+Place Windows
+	radio\bot\windows.wav
+End
+
+Place Window
+	radio\bot\window.wav
+End
+
+Place Attic
+	radio\bot\attic.wav
+End
+
+Place StorageRoom
+	radio\bot\storage_room.wav
+End
+
+Place ProjectorRoom
+	radio\bot\projector_room.wav
+End
+
+Place MeetingRoom
+	radio\bot\meeting_room.wav
+End
+
+Place ConferenceRoom
+	radio\bot\conference_room.wav
+End
+
+Place ComputerRoom
+	radio\bot\computer_room.wav
+End
+
+Place BigOffice
+	radio\bot\big_office.wav
+End
+
+Place LittleOffice
+	radio\bot\little_office.wav
+End
+
+Place Dumpster
+	radio\bot\dumpster.wav
+End
+
+Place Airplane
+	radio\bot\airplane.wav
+End
+
+Place Underground
+	radio\bot\underground.wav
+End
+
+Place Bunker
+	radio\bot\bunker.wav
+End
+
+Place Mines
+	radio\bot\mines.wav
+	radio\bot\old_mines.wav
+End
+
+Place Front
+	radio\bot\front.wav
+End
+
+Place Back
+	radio\bot\back.wav
+End
+
+Place Rear
+	radio\bot\rear.wav
+End
+
+Place Side
+	radio\bot\side.wav
+End
+
+Place Ramp
+	radio\bot\ramp.wav
+	radio\bot\ramp2.wav
+End
+
+Place Underpass
+	radio\bot\underpass.wav
+End
+
+Place Overpass
+	radio\bot\overpass.wav
+End
+
+Place Stairs
+	radio\bot\stairs.wav
+End
+
+Place Ladder
+	radio\bot\ladder.wav
+End
+
+Place Gate
+	radio\bot\gate.wav
+End
+
+Place GateHouse
+	radio\bot\gatehouse.wav
+End
+
+Place LoadingDock
+	radio\bot\loading_dock.wav
+End
+
+Place GuardHouse
+	radio\bot\guardhouse.wav
+End
+
+Place Entrance
+	radio\bot\entrance.wav
+End
+
+Place VendingMachines
+	radio\bot\vending_machines.wav
+	radio\bot\vending_machines2.wav
+End
+
+Place Loft
+	radio\bot\loft.wav
+End
+
+Place Balcony
+	radio\bot\balcony.wav
+End
+
+Place Alley
+	radio\bot\alley.wav
+End
+
+Place BackAlley
+	radio\bot\back_alley.wav
+End
+
+Place SideAlley
+	radio\bot\side_alley.wav
+End
+
+Place FrontRoom
+	radio\bot\front_room.wav
+End
+
+Place BackRoom
+	radio\bot\back_room.wav
+End
+
+Place SideRoom
+	radio\bot\side_room.wav
+End
+
+Place Crates
+	radio\bot\crates.wav
+End
+
+Place Truck
+	radio\bot\truck.wav
+End
+
+Place Bedroom
+	radio\bot\bedroom.wav
+	radio\bot\bedroom2.wav
+End
+
+Place FamilyRoom
+	radio\bot\family_room.wav
+End
+
+Place Bathroom
+	radio\bot\bathroom.wav
+	radio\bot\bathroom2.wav
+End
+
+Place LivingRoom
+	radio\bot\living_room.wav
+End
+
+Place Den
+	radio\bot\den.wav
+End
+
+Place Office
+	radio\bot\office.wav
+End
+
+Place Atrium
+	radio\bot\atrium.wav
+End
+
+Place Entryway
+	radio\bot\entryway.wav
+End
+
+Place Foyer
+	radio\bot\foyer.wav
+End
+
+Place Stairwell
+	radio\bot\stairwell.wav
+End
+
+Place Fence
+	radio\bot\fence.wav
+End
+
+Place Deck
+	radio\bot\deck.wav
+End
+
+Place Porch
+	radio\bot\porch.wav
+End
+
+Place Patio
+	radio\bot\patio.wav
+End
+
+Place Wall
+	radio\bot\wall.wav
+End
+
+
+
+//-----------------------------------------------------------------------------------------
+//
+// 机器人语音指令分类
+//
+
+// 首次发现一名或多名敌人时触发
+Chatter EnemySpotted
+	Radio EVENT_RADIO_ENEMY_SPOTTED
+
+	Count 1
+		radio\bot\one_guy.wav
+
+	Count 2
+		radio\bot\two_of_them.wav
+
+	Count 3
+		radio\bot\three.wav
+		radio\bot\three_of_them.wav
+
+	Count Many
+		// 语音提示：机器人处于惊恐状态——敌人数量很多!
+		radio\bot\a_bunch_of_them.wav
+		radio\bot\theyre_all_over_the_place2.wav
+		radio\bot\theyre_everywhere2.wav
+		radio\bot\theres_too_many_of_them.wav
+		radio\bot\theres_too_many.wav
+		radio\bot\too_many2.wav
+		radio\bot\the_actions_hot_here.wav 
+		radio\bot\its_a_party.wav 
+End
+
+// 机器人目击敌人死亡时触发
+Chatter EnemyDown
+	Radio EVENT_RADIO_ENEMY_DOWN
+
+	radio\bot\enemy_down.wav 
+	radio\bot\enemy_down2.wav 
+End
+
+// 机器人在与敌人交火时收到"report in"指令时触发
+Chatter InCombat
+	Radio EVENT_RADIO_ENEMY_SPOTTED
+
+	radio\bot\attacking.wav 
+	radio\bot\attacking_enemies.wav 
+	radio\bot\engaging_enemies.wav 
+	radio\bot\in_combat.wav 
+	radio\bot\in_combat2.wav 
+	radio\bot\returning_fire.wav 
+End
+
+// 机器人收到"report in"指令，但自身区域无异常情况时触发
+Chatter Clear
+	Radio EVENT_RADIO_SECTOR_CLEAR
+
+	radio\bot\clear.wav 
+	radio\bot\clear2.wav 
+	radio\bot\clear3.wav 
+	radio\bot\clear4.wav 
+	radio\bot\area_clear.wav 
+	radio\bot\all_clear_here.wav 
+	radio\bot\nothing_moving_over_here.wav 
+	radio\bot\all_quiet.wav 
+	radio\bot\nothing_happening_over_here.wav 
+	radio\bot\i_got_nothing.wav 
+	radio\bot\nothing.wav 
+	radio\bot\nothing_here.wav 
+	radio\bot\theres_nobody_home.wav 
+End
+
+// 机器人长时间未发现敌情，请求队友汇报情况时触发
+Chatter RequestReport
+	Radio EVENT_RADIO_REPORT_IN_TEAM
+
+	radio\bot\report_in_team.wav 
+	radio\bot\anyone_see_them.wav 
+	radio\bot\anyone_see_anything.wav 
+	radio\bot\where_are_they.wav 
+	radio\bot\where_could_they_be.wav 
+End
+
+// 机器人击杀了正在交战的敌人时触发
+Chatter KilledMyEnemy
+	Radio EVENT_RADIO_ENEMY_DOWN
+
+	radio\bot\hes_dead.wav 
+	radio\bot\hes_down.wav 
+	radio\bot\got_him.wav 
+	radio\bot\dropped_him.wav 
+	radio\bot\killed_him.wav 
+	radio\bot\ruined_his_day.wav 
+	radio\bot\wasted_him.wav 
+	radio\bot\took_him_out.wav 
+	radio\bot\took_him_out2.wav 
+	radio\bot\took_him_down.wav 
+	radio\bot\made_him_cry.wav 
+	radio\bot\hes_broken.wav 
+	radio\bot\hes_done.wav 
+End
+
+// 机器人追击敌人但丢失目标时触发
+// 语气：轻微沮丧/失望/恼怒
+Chatter LostEnemy
+	radio\bot\he_got_away.wav 
+	radio\bot\he_got_away2.wav 
+	radio\bot\i_dont_know_where_he_went.wav 
+	radio\bot\i_lost_him.wav 
+End
+
+// 机器人告知队友最后一名敌人已被击杀时触发
+// 语气：快乐/满足感/满足
+Chatter NoEnemiesLeft
+	radio\bot\that_was_it.wav
+	radio\bot\that_was_the_last_one.wav
+	radio\bot\that_was_the_last_guy.wav
+End
+
+// 机器人告知队友仅剩一名敌人时触发
+// 语气：期待
+Chatter OneEnemyLeft
+	radio\bot\one_guy_left.wav
+	radio\bot\theres_one_left.wav
+End
+
+// 机器人告知队友仅剩两名敌人时触发
+Chatter TwoEnemiesLeft
+	radio\bot\two_enemies_left.wav 
+	radio\bot\two_to_go.wav 
+End
+
+// 机器人告知队友仅剩三名敌人时触发
+Chatter ThreeEnemiesLeft
+	radio\bot\three_left.wav 
+	radio\bot\three_to_go.wav 
+	radio\bot\three_to_go2.wav 
+End
+
+// 机器人陷入险境，请求队友支援时触发
+// 语气：试图保持镇定，但实际已极度恐惧
+Chatter Help
+	Radio EVENT_RADIO_TAKING_FIRE
+
+	radio\bot\taking_fire_need_assistance2.wav 
+	radio\bot\i_could_use_some_help.wav 
+	radio\bot\i_could_use_some_help_over_here.wav 
+	radio\bot\help.wav 
+	radio\bot\need_help.wav 
+	radio\bot\need_help2.wav 
+	radio\bot\im_in_trouble.wav 
+End
+
+// 机器人同意上一条无线电指令时触发
+Chatter Affirmative
+	Radio EVENT_RADIO_AFFIRMATIVE
+
+	Important
+
+	radio\bot\affirmative.wav 
+	radio\bot\roger.wav 
+	radio\bot\roger_that.wav 
+End
+
+// 机器人拒绝上一条无线电指令时触发
+Chatter Negative
+	Radio EVENT_RADIO_NEGATIVE
+
+	Important
+
+	radio\bot\ahh_negative.wav 
+	radio\bot\negative.wav 
+	radio\bot\negative2.wav 
+	radio\bot\no.wav
+	radio\bot\nnno_sir.wav
+	radio\bot\no_sir.wav
+End
+
+//-----------------------------------------------------------------------------------------
+//
+// 拆弹场景专属语音
+//
+
+// 反恐精英（CT）机器人检查炸弹点后未发现炸弹，告知队友该区域安全 
+Chatter BombsiteClear
+	Radio EVENT_RADIO_SECTOR_CLEAR
+
+	Important
+
+	radio\bot\clear.wav 
+	radio\bot\clear2.wav 
+	radio\bot\clear3.wav 
+	radio\bot\area_clear.wav 
+	radio\bot\nothing.wav 
+	radio\bot\nothing_here.wav 
+End
+
+// 反恐精英（CT）机器人开始拆除炸弹时触发
+Chatter DefusingBomb
+	Radio EVENT_RADIO_COVER_ME
+
+	Important
+
+	radio\bot\defusing.wav 
+	radio\bot\defusing_bomb.wav 
+	radio\bot\defusing_bomb_now.wav
+End
+
+// 反恐精英（CT）机器人告知队友自己将守卫已掉落的炸弹
+Chatter GoingToGuardLooseBomb
+	radio\bot\im_going_to_guard_the_bomb.wav
+	radio\bot\im_going_to_guard_the_bomb2.wav
+	radio\bot\im_going_to_keep_an_eye_on_the_bomb.wav
+	radio\bot\im_going_to_watch_the_bomb.wav
+End
+
+// 反恐精英（CT）机器人正在守卫已掉落的炸弹，向队友通报时触发
+Chatter GuardingLooseBomb
+	Radio EVENT_RADIO_IN_POSITION
+
+	Important
+
+	radio\bot\guarding_the_dropped_bomb.wav
+	radio\bot\ive_got_the_bomb.wav
+	radio\bot\ive_got_the_bomb_here.wav
+	radio\bot\the_bombs_here.wav
+	radio\bot\the_bombs_here_on_the_ground.wav
+End
+
+// 恐怖分子（T）正在安放炸弹时触发
+Chatter PlantingBomb
+	Radio EVENT_RADIO_COVER_ME
+
+	Important
+
+	// 适用于无明确炸弹点的地图，或偶尔模糊表述安放位置时触发
+	Place ANY
+		radio\bot\planting_the_bomb.wav
+		radio\bot\planting.wav
+
+	Place BombsiteA
+		radio\bot\planting_at_a.wav
+
+	Place BombsiteB
+		radio\bot\planting_at_b.wav
+
+	Place BombsiteC
+		radio\bot\planting_at_c.wav
+End
+
+// 恐怖分子（T）告知队友自己计划在特定炸弹点安放炸弹时触发
+Chatter GoingToPlantBomb
+	Radio EVENT_RADIO_FOLLOW_ME
+
+	Important
+
+	// 适用于无明确炸弹点的地图，或偶尔模糊表述时触发
+	Place ANY
+		radio\bot\im_gonna_go_plant.wav
+		radio\bot\im_gonna_go_plant_the_bomb.wav
+
+	Place BombsiteA
+		radio\bot\im_gonna_plant_the_bomb_at_a.wav
+		radio\bot\taking_the_bomb_to_a.wav
+
+	Place BombsiteB
+		radio\bot\going_to_plant_the_bomb_at_b.wav
+		radio\bot\im_gonna_plant_the_bomb_at_b.wav
+		radio\bot\taking_the_bomb_to_b.wav
+
+	Place BombsiteC
+		radio\bot\im_gonna_plant_the_bomb_at_c.wav
+		radio\bot\im_gonna_plant_the_bomb_at_c2.wav
+		radio\bot\taking_the_bomb_to_c.wav
+End
+
+// 反恐精英（CT）机器人发现携带炸弹的恐怖分子时触发
+// 语气: 紧张坚定/充满决心/愤怒
+Chatter SpottedBomber
+	Radio EVENT_RADIO_ENEMY_SPOTTED
+
+	Important
+
+	radio\bot\i_see_the_bomber.wav
+	radio\bot\theres_the_bomber.wav
+	radio\bot\hes_got_the_bomb.wav
+	radio\bot\hes_got_the_bomb2.wav
+	radio\bot\hes_got_the_package.wav
+	radio\bot\spotted_the_delivery_boy.wav
+End
+
+// 机器人发现地面上掉落的炸弹时触发
+Chatter SpottedLooseBomb
+	Important
+
+	radio\bot\bombs_on_the_ground.wav
+	radio\bot\bombs_on_the_ground_here.wav
+	radio\bot\the_bomb_is_down.wav
+	radio\bot\the_bomb_is_on_the_ground.wav
+	radio\bot\they_dropped_the_bomb.wav
+End
+
+// 反恐精英（CT）机器人听到恐怖分子捡起掉落的炸弹时触发
+// 语气：焦虑/急促
+Chatter TheyPickedUpTheBomb
+	Important
+
+	radio\bot\they_took_the_bomb.wav
+	radio\bot\they_took_the_bomb2.wav
+	radio\bot\they_got_the_bomb.wav
+	radio\bot\they_picked_up_the_bomb.wav
+End
+
+// 反恐精英（CT）机器人发现正在倒计时的炸弹位置时触发
+Chatter PlantedBombPlace
+	Radio EVENT_RADIO_NEED_BACKUP
+
+	Important
+
+	// 适用于无明确炸弹点的地图
+	Place UNDEFINED
+		radio\bot\theres_the_bomb.wav
+		radio\bot\theres_the_bomb2.wav
+
+	Place BombsiteA
+		radio\bot\the_bombs_at_a.wav
+		//radio\bot\they_planted_at_a.wav		(无法使用这些语音，因为恐怖分子也会触发相同语音)
+		radio\bot\the_bombs_ticking_at_a.wav
+
+	Place BombsiteB
+		radio\bot\the_bombs_at_b.wav
+		//radio\bot\they_planted_at_b.wav
+		radio\bot\the_bombs_ticking_at_b.wav
+
+	Place BombsiteC
+		radio\bot\the_bombs_at_c.wav
+		//radio\bot\they_planted_at_c.wav
+		radio\bot\the_bombs_ticking_at_c.wav
+End
+
+// 机器人询问队友炸弹位置时触发
+Chatter WhereIsTheBomb
+	Important
+
+	radio\bot\wheres_the_bomb.wav
+	radio\bot\wheres_the_bomb2.wav
+	radio\bot\wheres_the_bomb3.wav
+	radio\bot\where_is_it.wav
+End
+
+//  反恐精英（CT）机器人通报自己将守卫某个炸弹点时触发
+Chatter GoingToDefendBombsite
+	Important
+
+	// 适用于无明确炸弹点的地图，或需要模糊表述时触发
+	Place ANY
+		radio\bot\im_going_to_camp.wav
+
+	Place BombsiteA
+		radio\bot\im_going_to_guard_bombsite_a.wav
+		radio\bot\im_going_to_camp_a.wav
+
+	Place BombsiteB
+		radio\bot\im_going_to_guard_bombsite_b.wav
+		radio\bot\im_going_to_camp_b.wav
+
+	Place BombsiteC
+		radio\bot\im_going_to_guard_bombsite_c.wav
+		radio\bot\im_going_to_camp_c.wav
+End
+
+// 反恐精英（CT）机器人通报自己正在守卫某个炸弹点时触发
+Chatter DefendingBombsite
+	Important
+
+	// 适用于无明确炸弹点的地图
+	Place UNDEFINED
+		radio\bot\bombsite.wav
+		radio\bot\bombsite2.wav
+
+	Place BombsiteA
+		radio\bot\i_got_a_covered.wav
+		radio\bot\guarding_a.wav
+		radio\bot\im_camping_a.wav
+		radio\bot\heading_to_a.wav
+
+	Place BombsiteB
+		radio\bot\i_got_b_covered.wav
+		radio\bot\guarding_b.wav
+		radio\bot\im_camping_b.wav
+		radio\bot\heading_to_b.wav
+
+	Place BombsiteC
+		radio\bot\i_got_c_covered.wav
+		radio\bot\guarding_c.wav
+		radio\bot\im_camping_c.wav
+		radio\bot\heading_to_c.wav
+End
+
+// 反恐精英（CT）机器人通报炸弹点已安全，可安排人员拆弹
+Chatter BombsiteSecure
+	Radio EVENT_RADIO_SECTOR_CLEAR
+
+	Important
+
+	radio\bot\bombsite_secure.wav
+	radio\bot\bombsite_secured.wav
+	radio\bot\bombsite_under_control.wav
+	radio\bot\weve_got_the_situation.wav
+End
+
+// 反恐精英（CT）机器人鼓励玩家拆除炸弹
+Chatter WaitingForHumanToDefuseBomb
+	radio\bot\its_all_up_to_you_sir.wav
+	radio\bot\bombsite_secure_ready_for_you.wav
+	radio\bot\well_cover_you_while_you_defuse.wav
+	radio\bot\well_cover_you_you_defuse.wav
+End
+
+// 反恐精英（CT）机器人焦急催促玩家拆除炸弹
+// 语气：极度紧张/焦虑/担忧
+Chatter WaitingForHumanToDefuseBombPanic
+	radio\bot\we_need_you_to_defuse_that_bomb_sir.wav
+	radio\bot\dont_worry_hell_get_it.wav
+	radio\bot\please_defuse_the_bomb_sir.wav
+	radio\bot\sir_defuse_the_bomb.wav
+	radio\bot\time_is_running_out.wav
+	radio\bot\time_is_running_out2.wav
+	radio\bot\uh_sir_the_bomb.wav
+End
+
+// 炸弹在剩余时间不足2秒时被成功拆除时触发
+// 语气：如释重负/欣喜
+Chatter BarelyDefused
+	radio\bot\i_wasnt_worried_for_a_minute.wav
+	radio\bot\that_was_a_close_one.wav
+	radio\bot\well_done.wav
+	radio\bot\whew_that_was_close.wav
+End
+
+
+//-----------------------------------------------------------------------------------------
+//
+// 人质解救场景专属语音
+//
+
+// 恐怖分子（T）机器人通报自己将守卫人质时触发
+Chatter GoingToGuardHostages
+	Important
+
+	radio\bot\camping_hostages.wav
+	radio\bot\im_going_to_camp_the_hostages.wav
+	radio\bot\im_going_to_guard_the_hostages.wav
+	radio\bot\im_going_to_guard_the_hostages2.wav
+End
+
+// 恐怖分子（T）机器人正在守卫人质时触发
+Chatter GuardingHostages
+	Important
+
+	radio\bot\keeping_an_eye_on_the_hostages.wav
+	radio\bot\guarding_the_hostages.wav
+	radio\bot\guarding_hostages.wav
+	radio\bot\watching_the_hostages.wav
+	radio\bot\im_with_the_hostages.wav
+	radio\bot\im_with_the_hostages2.wav
+	radio\bot\im_at_the_hostages.wav
+End
+
+// 恐怖分子（T）机器人通报自己将守卫人质撤离点时触发
+Chatter GoingToGuardHostageEscapeZone
+	Important
+
+	radio\bot\im_going_to_cover_the_escape_zone.wav
+	radio\bot\im_going_to_watch_the_escape_zone.wav
+	radio\bot\im_going_to_keep_an_eye_on_the_escape.wav
+	radio\bot\heading_to_the_escape_zone.wav
+	radio\bot\heading_to_the_rescue_zone.wav
+	radio\bot\im_going_to_keep_an_eye_on_the_rescue.wav
+	radio\bot\im_going_to_watch_the_rescue_zone.wav
+End
+
+// 恐怖分子（T）机器人正在守卫人质撤离点时触发
+Chatter GuardingHostageEscapeZone
+	Important
+
+	radio\bot\watching_the_escape_route.wav
+	radio\bot\im_at_the_escape_zone.wav
+	radio\bot\watching_the_escape_zone.wav
+	radio\bot\guarding_the_escape_zone.wav
+	radio\bot\guarding_the_escape_zone2.wav
+End
+
+// 恐怖分子（T）机器人告知队友，反恐精英（CT）正在转移人质时触发
+// 语气：焦虑/沮丧/愤怒
+Chatter HostagesBeingTaken
+	Radio EVENT_RADIO_NEED_BACKUP
+
+	Important
+
+	radio\bot\theyre_with_the_hostages.wav
+	radio\bot\theyre_taking_the_hostages.wav
+	radio\bot\theyre_rescuing_the_hostages.wav
+	radio\bot\hostages2.wav
+End
+
+// 恐怖分子（T）机器人发现人质已被救走时触发
+// 语气：焦虑/沮丧/愤怒
+Chatter HostagesTaken
+	Important
+
+	radio\bot\they_took_the_hostages.wav
+	radio\bot\theyve_got_the_hostages.wav
+	radio\bot\the_hostages_are_gone.wav
+End
+
+// 反恐精英（CT）机器人通报自己正在与人质沟通时触发
+Chatter TalkingToHostages
+	Important
+
+	radio\bot\talking_to_hostages.wav
+	radio\bot\rescuing_hostages.wav
+End
+
+// 反恐精英（CT）机器人通报自己已控制人质，正带领他们前往撤离点时触发
+Chatter EscortingHostages
+	Important
+
+	radio\bot\the_hostages_are_with_me.wav
+	radio\bot\taking_the_hostages_to_safety.wav
+	radio\bot\ive_got_the_hostages.wav
+	radio\bot\i_have_the_hostages.wav
+End
+
+// 反恐精英（CT）机器人正在守卫人质，呼叫人类玩家前来解救时触发
+Chatter WaitingForHumanToRescueHostages
+	Radio EVENT_RADIO_SECTOR_CLEAR
+
+	Important
+
+	radio\bot\the_hostages_are_waiting.wav
+	radio\bot\hostages_secure_ready_for_you.wav
+	radio\bot\the_hostages_are_eager.wav
+	radio\bot\the_hostages_are_ready.wav
+	radio\bot\weve_got_the_situation.wav
+End
+
+
+//-----------------------------------------------------------------------------------------
+//
+// VIP暗杀场景专属语音
+//
+
+// 恐怖分子（T）机器人发现VIP目标时触发
+// 语气：紧张坚定/充满愤怒/意志坚决
+Chatter SpottedVIP
+	Radio EVENT_RADIO_ENEMY_SPOTTED
+
+	Important
+
+	radio\bot\i_see_our_target.wav
+	radio\bot\target_spotted.wav
+	radio\bot\target_acquired.wav
+End
+
+// 恐怖分子（T）机器人通报自己将守卫VIP撤离点时触发
+Chatter GoingToGuardVIPEscapeZone
+	Important
+
+	radio\bot\im_going_to_cover_the_escape_zone.wav
+	radio\bot\im_going_to_watch_the_escape_zone.wav
+	radio\bot\im_going_to_keep_an_eye_on_the_escape.wav
+	radio\bot\heading_to_the_escape_zone.wav
+End
+
+// 恐怖分子（T）机器人正在守卫VIP撤离点时触发
+Chatter GuardingVIPEscapeZone
+	Important
+
+	radio\bot\watching_the_escape_route.wav
+	radio\bot\im_at_the_escape_zone.wav
+	radio\bot\watching_the_escape_zone.wav
+	radio\bot\guarding_the_escape_zone.wav
+	radio\bot\guarding_the_escape_zone2.wav
+End
+
+
+//-----------------------------------------------------------------------------------------
+
+// 机器人正在说话时突然死亡（语音中途中断）时触发
+// 语气: 死亡惨叫
+Chatter Pain
+	radio\bot\pain2.wav
+	radio\bot\pain4.wav
+	radio\bot\pain5.wav
+	radio\bot\pain8.wav
+	radio\bot\pain9.wav
+	radio\bot\pain10.wav
+End
+
+// 机器人祝贺队伍赢得本回合胜利时触发
+Chatter WonRound
+	radio\bot\good_job_team.wav
+	radio\bot\nice_work_team.wav
+	radio\bot\way_to_be_team.wav
+	radio\bot\well_done.wav
+End
+
+// 机器人庆祝队伍迅速击溃敌人时触发
+// 语气：兴奋欢呼、吹牛、炫耀等
+Chatter WonRoundQuickly
+	radio\bot\i_am_dangerous.wav
+	radio\bot\do_not_mess_with_me.wav
+	radio\bot\we_owned_them.wav
+	radio\bot\they_never_knew_what_hit_them.wav
+	radio\bot\thats_the_way_this_is_done.wav
+	radio\bot\and_thats_how_its_done.wav
+	radio\bot\owned.wav
+	radio\bot\yesss.wav
+	radio\bot\yesss2.wav
+	radio\bot\yea_baby.wav
+	radio\bot\whoo.wav
+	radio\bot\whoo2.wav
+	radio\bot\oh_yea.wav
+	radio\bot\oh_yea2.wav
+End
+
+// 机器人存活到最后并赢得本回合胜利时触发
+语气：吹牛、炫耀等
+Chatter LastManStanding
+	radio\bot\i_am_dangerous.wav
+	radio\bot\do_not_mess_with_me.wav
+	radio\bot\this_is_my_house.wav
+End
+
+// 机器人因完成精彩操作发出短促的兴奋叫声时触发
+// 语气：兴奋欢呼
+Chatter ThrillEmote
+	radio\bot\yesss.wav
+	radio\bot\yesss2.wav
+	radio\bot\yea_baby.wav
+	radio\bot\whoo.wav
+	radio\bot\whoo2.wav
+	radio\bot\oh_yea.wav
+	radio\bot\oh_yea2.wav
+End
+
+// 机器人感到恐惧（通常因被敌人数量压制）时触发
+// 语气：担忧/焦虑/恐惧 
+Chatter ScaredEmote
+	radio\bot\whoa.wav
+	radio\bot\uh_oh.wav
+	radio\bot\oh_no.wav
+	radio\bot\yikes.wav
+	radio\bot\oh.wav
+	radio\bot\oh_boy.wav
+	radio\bot\oh_boy2.wav
+	radio\bot\aah.wav
+End
+
+// 机器人同意他人提出的行动计划时触发
+Chatter AgreeWithPlan
+	Important
+
+	radio\bot\me_too.wav
+	radio\bot\ill_come_with_you.wav
+	radio\bot\ill_go_with_you.wav
+	radio\bot\ill_go_too.wav
+	radio\bot\i_got_your_back.wav
+	radio\bot\i_got_your_back2.wav
+	radio\bot\im_with_you.wav
+	radio\bot\sounds_like_a_plan.wav
+	radio\bot\good_idea.wav
+End
+
+// 机器人告知队友自己会"cover them"，注意背后安全时触发
+Chatter CoveringFriend
+	Radio EVENT_RADIO_AFFIRMATIVE
+
+	Important
+
+	radio\bot\i_got_your_back.wav
+	radio\bot\i_got_your_back2.wav
+	radio\bot\im_with_you.wav
+End
+
+// 机器人响应队友的求助请求时触发
+// 语气：自信/令人安心
+Chatter OnMyWay
+	Radio EVENT_RADIO_AFFIRMATIVE
+
+	Important
+
+	radio\bot\on_my_way.wav
+	radio\bot\on_my_way2.wav
+	radio\bot\im_coming.wav
+	radio\bot\hang_on_im_coming.wav
+	radio\bot\be_right_there.wav
+End
+
+// 机器人决定暂时隐蔽，不主动寻找敌人时触发
+// 语气: 焦虑/担忧/怯懦
+Chatter WaitingHere
+	radio\bot\lets_wait_here.wav
+	radio\bot\lets_hold_up_here_for_a_minute.wav
+	radio\bot\im_gonna_hang_back.wav
+	radio\bot\im_going_to_wait_here.wav
+	radio\bot\im_waiting_here.wav
+End
+
+// 机器人陷入长时间战斗无法脱身时触发
+// 语气:焦虑/担忧/恐惧
+Chatter PinnedDown
+	Radio EVENT_RADIO_NEED_BACKUP
+
+	radio\bot\they_got_me_pinned_down_here.wav
+	radio\bot\im_pinned_down.wav
+End
+
+// 机器人听到敌人发出的声响时触发
+// 语气:低声提醒
+Chatter HeardNoise
+	radio\bot\i_hear_them.wav
+	radio\bot\hang_on_i_heard_something.wav
+	radio\bot\i_hear_something.wav
+	radio\bot\i_heard_them.wav
+	radio\bot\i_heard_something_over_there.wav
+End
+
+// 机器人被闪光弹致盲时触发
+// 语气:惊讶/震惊/恐惧/焦虑 
+Chatter Blinded
+	radio\bot\ive_been_blinded.wav
+	radio\bot\my_eyes.wav
+	radio\bot\i_cant_see.wav
+	radio\bot\im_blind.wav
+End
+
+// 机器人祝贺队友完成精彩射击时触发
+// 语气:积极乐观/支持/赞赏
+Chatter NiceShot
+	radio\bot\good_one.wav
+	radio\bot\good_one2.wav
+	radio\bot\nice_shot.wav
+	radio\bot\nice_shot2.wav
+	radio\bot\good_shot.wav
+	radio\bot\good_shot2.wav
+	radio\bot\nice.wav
+	radio\bot\nice2.wav
+	radio\bot\very_nice.wav
+End
+
+// 机器人祝贺人类玩家完成精彩射击时触发
+// 语气:积极乐观/支持/赞赏
+Chatter NiceShotSir
+	radio\bot\good_one_sir.wav
+	radio\bot\good_one_sir2.wav
+	radio\bot\nice_shot_sir.wav
+	radio\bot\nice_one_sir.wav
+End
+
+// 机器人在单人游戏模式下祝贺"commander"时触发
+// 语气:积极乐观/支持/赞赏
+Chatter NiceShotCommander
+	radio\bot\nice_shot_commander.wav
+	radio\bot\nice_shot_commander2.wav
+	radio\bot\good_shot_commander.wav
+	radio\bot\good_shot_commander2.wav
+	radio\bot\nice_one_commander.wav
+	radio\bot\good_one_sir.wav
+	radio\bot\good_one_sir2.wav
+	radio\bot\nice_shot_sir.wav
+	radio\bot\nice_one_sir.wav
+End
+
+// 单人游戏模式下玩家死亡时触发
+// 语气:紧张/担忧/焦虑
+Chatter CommanderDown
+	Radio EVENT_RADIO_REGROUP_TEAM
+
+	Important
+
+	radio\bot\the_commander_is_down_repeat.wav
+	radio\bot\the_commander_is_down.wav
+	radio\bot\weve_lost_the_commander.wav
+End
+
+// 机器人决定跟随人类玩家行动时触发
+Chatter FollowingSir
+	Radio EVENT_RADIO_AFFIRMATIVE
+
+	Important
+
+	radio\bot\lead_on_sir.wav
+	radio\bot\lead_the_way_sir.wav
+	radio\bot\lead_the_way.wav
+	radio\bot\ok_sir_lets_go.wav
+End
+
+// 机器人在单人游戏模式下决定跟随人类玩家行动时触发
+Chatter FollowingCommander
+	Radio EVENT_RADIO_AFFIRMATIVE
+
+	Important
+
+	radio\bot\lead_on_sir.wav
+	radio\bot\lead_the_way_sir.wav
+	radio\bot\lead_the_way.wav
+	radio\bot\ok_sir_lets_go.wav
+	radio\bot\lead_on_commander.wav
+	radio\bot\lead_the_way_commander.wav
+	radio\bot\ok_cmdr_lets_go.wav
+End
+
+// 机器人对误杀队友表示震惊时触发
+// 语气:悲痛/悲伤/担忧/惊讶
+Chatter KilledFriend
+	radio\bot\what_happened.wav
+	radio\bot\noo.wav
+	radio\bot\oh_my_god.wav
+	radio\bot\oh_man.wav
+	radio\bot\oh_no_sad.wav
+	radio\bot\what_have_you_done.wav
+End
+
+// 机器人因友军火力受伤惨叫时触发
+// 语气: 痛苦/愤怒/沮丧
+Chatter FriendlyFire
+	Important
+
+	radio\bot\cut_it_out.wav
+	radio\bot\what_are_you_doing.wav
+	radio\bot\stop_it.wav
+	radio\bot\ow_its_me.wav
+	radio\bot\ow.wav
+	radio\bot\ouch.wav
+	radio\bot\im_on_your_side.wav
+	radio\bot\hold_your_fire.wav
+	radio\bot\hey.wav
+	radio\bot\hey2.wav
+	radio\bot\ouch.wav
+	radio\bot\ouch.wav
+	radio\bot\ouch.wav
+End
+
+
+
+//---------------------------------------------------------------------------------------
+//
+// 暂未启用（待后续开发）
+//
+
+Chatter PepTalk
+	radio\bot\alright_lets_do_this.wav
+	radio\bot\tag_them_and_bag_them.wav
+	radio\bot\you_heard_the_man_lets_go.wav
+End
+
+Chatter OnARollBrag
+	radio\bot\i_got_more_where_that_came_from.wav
+	radio\bot\who_wants_some_more.wav
+	radio\bot\i_am_on_fire.wav
+	radio\bot\look_out_brag.wav
+	radio\bot\thats_right.wav
+	radio\bot\whos_the_man.wav
+End
+
+Chatter TauntCamper
+	radio\bot\come_out_wherever_you_are.wav
+	radio\bot\where_are_you_hiding.wav
+	radio\bot\come_out_and_fight_like_a_man.wav
+	radio\bot\come_to_papa.wav
+End
+
+Chatter PreventEscapeBrag
+	radio\bot\they_wont_get_away.wav
+	radio\bot\they_wont_get_away2.wav
+	radio\bot\they_will_not_escape.wav
+End
+
+Chatter SniperWarning
+	radio\bot\sniper.wav
+	radio\bot\sniper2.wav
+	radio\bot\watch_it_theres_a_sniper.wav
+End
+
+Chatter SniperKilled
+	radio\bot\got_the_sniper.wav
+	radio\bot\got_the_sniper2.wav
+	radio\bot\sniper_down.wav
+	radio\bot\took_out_the_sniper.wav
+	radio\bot\the_sniper_is_dead.wav
+End
+
+// 发现敌人踪迹，但现已全部清除时触发
+Chatter ClearedArea
+	radio\bot\area_secure.wav 
+	radio\bot\neutralized.wav 
+End
+
+Chatter Agree
+	radio\bot\ok.wav
+	radio\bot\ok2.wav
+	radio\bot\alright.wav
+	radio\bot\alright2.wav
+	radio\bot\yea_ok.wav
+End
+
+Chatter Disagree
+	radio\bot\no2.wav
+	radio\bot\i_dont_think_so.wav
+	radio\bot\naa.wav
+	radio\bot\no_thanks.wav
+End
+
+Chatter CoverMe
+	radio\bot\cover_me.wav 
+	radio\bot\cover_me2.wav 
+End
+
+Chatter FrustrationEmote
+	radio\bot\aw_hell.wav
+	radio\bot\great.wav
+	radio\bot\aww_man.wav
+	radio\bot\thats_not_good.wav
+End
+
+Chatter FollowingFriend
+	radio\bot\ill_come_with_you.wav
+	radio\bot\ill_go_with_you.wav
+	radio\bot\ill_go_too.wav
+	radio\bot\i_got_your_back.wav
+	radio\bot\i_got_your_back2.wav
+	radio\bot\im_with_you.wav
+End
+
+Chatter ReportingIn
+	radio\bot\reporting_in.wav 
+End
+
+Chatter BombTickingDown
+	radio\bot\we_gotta_find_that_bomb.wav
+	radio\bot\time_is_running_out.wav
+	radio\bot\theres_not_much_time_left.wav
+End
+
+Chatter HostageDown
+	radio\bot\hostage_down.wav
+End
+
+Chatter RequestHostageLocation
+	radio\bot\where_are_the_hostages.wav
+End
+
+Chatter MeToo
+	radio\bot\me_too.wav
+End
+
+
