@@ -24,5 +24,12 @@ CS 1.6 服务器基础平台（基于HLDS，包含ReHLDS、ReGameDLL等）
 * 1.3.0.149的汉化版本，同时提供plugins.ini范本.
 
 ## 07.Amxmodx 
-* 1.9.0.5303和1.10.0.5476两个版本的Windows和Linux
+* Windows和Linux操作系统的1.9.0.5303和1.10.0.5476两个版本
 * 所有参数文件均已深度汉化
+* 
+## 08.ReAPI 
+* Windows和Linux操作系统的5.29.0.358版本
+
+## 09.ReChecker 
+* Windows和Linux操作系统的2.7版本
+* resources.ini已深度汉化，并提供最新的文件核查库，包括违规皮肤模型、地图纹理的核查
