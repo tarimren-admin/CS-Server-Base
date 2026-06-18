@@ -2,8 +2,8 @@
 
 
 
-# CS-Server-Base
-CS 1.6 服务器基础平台（基于HLDS，包含ReHLDS、ReGameDLL等）
+# CS1.6 服务器构建平台
+CS 1.6 服务器构建平台基于HLDS，包含ReHLDS、ReGameDLL等
 
 ## 01.HLDS-8684
 * 官方发布的Windows和Linux 8684版本
