@@ -22,7 +22,7 @@ CS 1.6 服务器构建平台基于HLDS，包含ReHLDS、ReGameDLL等
 * 汉化版本的Rehlds.CFG、Server.CFG.
 
 ## 06.MetaMod
-* 1.3.0.149的汉化版本，同时提供plugins.ini范本.
+* 版本号：1.3.0.149，同时提供plugins.ini范本.
 
 ## 07.Amxmodx 
 * Windows和Linux操作系统的1.9.0.5303和1.10.0.5476两个版本
